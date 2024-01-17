@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>책목록</h2>
+	<table>
+		<tr>
+			<th>도서번호</th>
+			<th>도서명</th>
+			<th>저자</th>
+			<th>출판사</th>
+			<th>가격</th>
+			<th>조회</th>
+		</tr>
+		<tr th:each="book:${bookList">
+			<td>
+				<a th:href="@{|/book/${book.id}|}" th:text="${book.id"></a>
+			</td>
+			<td th:text="${book.bookName}"></td>
+			<td th:text="${book.bookAuthor}"></td>
+			<td th:text="${book.bookPublisher}"></td>
+			<td th:text="${book.bookPrice"></td>
+			<td>
+				<button th:onclick="detail([[${book.id}]])">조회</button>
+			</td>
+		</tr>
+</table>
+</body>
+<script th:inline="javascript">
+	const detail = (id) => {
+		consol.log("클릭한 id",id);
+	//1번 클릭 => /book/1, 2번클릭 => /book/2
+	// location.href ="/student/" + id;
+	location.href = `/student/${id}`;
+	
+	}
+</script>
+</html>
