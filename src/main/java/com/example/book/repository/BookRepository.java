@@ -15,11 +15,20 @@ public class BookRepository {
 	
 	public void save(BookDTO bookDTO) {
 		sql.insert("Book.save",bookDTO);
+		System.out.println(bookDTO);
 	}
 	public List<BookDTO> findAll(){
-		return sql.selectList("book.findAll");
+		return sql.selectList("Book.findAll");
 	}
 	public BookDTO findById(Long id) {
-		return sql.selectOne("book.findById",id);
+		return sql.selectOne("Book.findById",id);
+	}
+	public void delete(Long id) {
+		sql.delete("Book.delete",id);
+		
+	}
+	public void update(BookDTO bookDTO) {
+		sql.update("Book.update",bookDTO);
+		
 	}
 }
