@@ -37,16 +37,16 @@
 </body>
 <script th:inline="javascript">
 	const detail = (id) => {
-		consol.log("클릭한 id",id);
+		console.log("클릭한 id",id);
 	//1번 클릭 => /book/1, 2번클릭 => /book/2
 	// location.href ="/book/" + id;
-	location.href = `/book/${id}`;
+		location.href = `/book/${id}`;
 	}
 	const delete_fn = (id) => {
 		location.href = `/book/delete/${id}`;	
 	}
 	const update_fn = (id) => {
-			location.href = `/book/update/${id}`;
+		location.href = `/book/update/${id}`;
 	}
 	
 
